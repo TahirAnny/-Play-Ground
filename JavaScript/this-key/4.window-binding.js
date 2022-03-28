@@ -3,7 +3,7 @@
     then the this is bound to the window(global) object.
 */
 
-let personName = function(name) {
+let personName = function() {
     console.log(this.name);
 };
 
