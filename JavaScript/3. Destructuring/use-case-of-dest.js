@@ -18,3 +18,17 @@ let c, d;
 [c, d] = f();
 console.log(c); // 10
 console.log(d); // 20
+
+//Combined Array and Object Destructuring
+
+const props = [
+    { id: 1, name: 'Fizz'},
+    { id: 2, name: 'Buzz'},
+    { id: 3, name: 'FizzBuzz'}
+  ];
+  
+  const [,, { name : propName }] = props;
+  
+  console.log(propName); // "FizzBuzz"
+
+// **Source: [Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
