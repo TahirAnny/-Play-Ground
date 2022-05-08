@@ -17,12 +17,13 @@ function App() {
     const retriveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
     if (retriveContacts) {
       setContacts(retriveContacts);
-      console.log(retriveContacts);
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
+    if (contacts.length > 0) {
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
+    }
   }, [contacts]);
 
   return (
