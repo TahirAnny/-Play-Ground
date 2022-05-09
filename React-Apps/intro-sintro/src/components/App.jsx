@@ -17,12 +17,23 @@ function App() {
     const retriveContacts = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
     if (retriveContacts) {
       setContacts(retriveContacts);
-      console.log(retriveContacts);
+      //console.log(retriveContacts);
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
+    console.log('contacts after reload', {
+      contacts
+    });
+    if (contacts) {
+      //now you're able to set contacts from this!
+      console.log('useEffect with dependency', {
+        contacts
+      })
+      setContacts(contacts)
+    }else{
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
+    }
   }, [contacts]);
 
   return (
